@@ -24,15 +24,15 @@ class Product(models.Model):
       on_delete=models.CASCADE
   )
 
-  def __str__(self):
-    # This must return a string
-    return f"The product named '{self.name}' is {self.color} in color. It is {self.ripe} that it is ripe."
+    def __str__(self):
+      # This must return a string
+      return f"The product named '{self.name}' is {self.color} in color. It is {self.ripe} that it is ripe."
 
-  def as_dict(self):
-    """Returns dictionary version of Product models"""
-    return {
-        'id': self.id,
-        'name': self.name,
-        'ripe': self.ripe,
-        'color': self.color
-    }
+    def as_dict(self):
+      """Returns dictionary version of Product models"""
+      return {
+          'id': self.id,
+          'name': self.name,
+          'ripe': self.ripe,
+          'color': self.color
+      }
