@@ -7,7 +7,17 @@ from .models.user import User
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'name', 'color', 'ripe', 'owner')
+        fields = ('id',
+                  'name',
+                  'image',
+                  'brand',
+                  'category',
+                  'description',
+                  'rating',
+                  'numReviews',
+                  'price',
+                  'countInStock',
+                  '_id', 'owner')
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation

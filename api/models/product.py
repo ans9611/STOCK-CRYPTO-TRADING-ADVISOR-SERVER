@@ -26,7 +26,7 @@ class Product(models.Model):
 
     def __str__(self):
       # This must return a string
-      return f"The product named '{self.name}' is {self.color} in color. It is {self.ripe} that it is ripe."
+      return f"The product named '{self.name}' is {self.price} dollars. It is {self.brand} that it is brand."
 
     def as_dict(self):
       """Returns dictionary version of Product models"""
