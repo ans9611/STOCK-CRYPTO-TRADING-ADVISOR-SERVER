@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS Trading-Advisor;
-CREATE DATABASE Trading-Advisor;
+DROP DATABASE IF EXISTS stocksData;
+CREATE DATABASE stocksData;
