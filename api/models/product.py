@@ -33,6 +33,13 @@ class Product(models.Model):
       return {
           'id': self.id,
           'name': self.name,
-          'ripe': self.ripe,
-          'color': self.color
+          'image': self.image,
+          'brand': self.brand,
+          'category': self.category,
+          'description': self.description,
+          'rating': self.rating,
+          'numReviews': self.numReviews,
+          'price': self.price,
+          'countInStock': self.countInStock,
+          '_id': self._id
       }
