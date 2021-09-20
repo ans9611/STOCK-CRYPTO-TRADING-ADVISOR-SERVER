@@ -2,14 +2,38 @@
 
 {% block content %}
 <!-- loop through key and values of price.Display's dictionary -->
+
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to Crpto</h1>
+  <p class="lead">Crpto Currency</p>
+
+  <a class="btn btn-primary btn-lg" href="#" role="button">Before Get To Work Click First</a>
+  </p>
+</div>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">24 High</th>
+      <th scope="col">24 Low</th>
+      <th scope="col">Market Cap</th>
+    </tr>
+  </thead>
+
+  <tbody>
 {% for key,value in price.DISPLAY.items %}
-  <strong>Name: </strong>{{ key }}<br/>
-  <strong>Price:</strong>{{ value.USD.PRICE}}<br />
-  <strong>Daily High:</strong>{{ value.USD.HIGHDAY }}<br />
-  <strong>Daily Low:</strong>{{ value.USD.LOWDAY }}<br />
-  <strong>MarketCap:</strong><br />{{ value.USD.MKTCAP }}
-  <hr>
+    <tr>
+      <td>{{ key }}</td>
+      <td>{{ value.USD.PRICE}}</td>
+      <td>{{ value.USD.HIGHDAY }}</td>
+      <td>{{ value.USD.LOWDAY }}</td>
+      <td>{{ value.USD.MKTCAP }}</td>
 {% endfor %}
+    </tr>
+  </tbody>
+</table>
 
 <!-- //created employer's homepage -->
 <div class="jumbotron">
