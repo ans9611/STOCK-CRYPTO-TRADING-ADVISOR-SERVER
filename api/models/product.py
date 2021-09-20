@@ -43,3 +43,4 @@ class Product(models.Model):
           'countInStock': self.countInStock,
           '_id': self._id
       }
+
