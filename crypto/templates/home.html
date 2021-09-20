@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- loop through key and values of price.Display's dictionary -->
+{% for key,value in price.DISPLAY.items %}
+  <strong>Name: </strong>{{ key }}<br/>
+  <strong>Price:</strong>{{ value.USD.PRICE}}<br />
+  <strong>Daily High:</strong>{{ value.USD.HIGHDAY }}<br />
+  <strong>Daily Low:</strong>{{ value.USD.LOWDAY }}<br />
+  <strong>MarketCap:</strong><br />{{ value.USD.MKTCAP }}
+  <hr>
+{% endfor %}
 
 <!-- //created employer's homepage -->
 <div class="jumbotron">
