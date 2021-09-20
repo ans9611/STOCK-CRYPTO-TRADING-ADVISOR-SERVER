@@ -34,3 +34,6 @@ def prices(request):
   else:
     notfound = "Enter a CORRECT crypto currency symbol into the form above..."
     return render(request, 'prices.html', {'notfound': notfound})
+
+def stockHome(request):
+  return render(request, 'stockHome.html', {})
