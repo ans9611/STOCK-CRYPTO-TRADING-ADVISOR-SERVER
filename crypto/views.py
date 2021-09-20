@@ -1,3 +1,4 @@
+import crypto
 from django.shortcuts import render
 
 # Create your views here.
@@ -18,9 +19,18 @@ def home(request):
 
 def prices(request):
   if request.method == 'POST':
+    import requests
+    import json
     # send request to post to prices.html
     quote = request.POST['quote']
-    return render(request, 'prices.html', {'quote':quote})
+    # converts to upper case to search so allows to search lower or uppercase name of the quote
+    quote = quote.upper()
+    # request selected name of crypto
+    crypto_request = requests.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + quote + "&tsyms=USD")
+    crypto = json.loads(crypto_request.content)
+    return render(request, 'prices.html', {'quote':quote, 'crypto': crypto})
 
+# Error handler
   else:
-    return render(request, 'prices.html', {})
+    notfound = "Enter a CORRECT crypto currency symbol into the form above..."
+    return render(request, 'prices.html', {'notfound': notfound})
