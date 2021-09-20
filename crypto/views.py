@@ -15,3 +15,12 @@ def home(request):
   api = json.loads(api_request.content)
   # api dictionary
   return render(request, 'home.html', {'api': api, 'price': price})
+
+def prices(request):
+  if request.method == 'POST':
+    # send request to post to prices.html
+    quote = request.POST['quote']
+    return render(request, 'prices.html', {'quote':quote})
+
+  else:
+    return render(request, 'prices.html', {})
