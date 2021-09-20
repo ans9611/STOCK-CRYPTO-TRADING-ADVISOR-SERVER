@@ -35,5 +35,66 @@ def prices(request):
     notfound = "Enter a CORRECT crypto currency symbol into the form above..."
     return render(request, 'prices.html', {'notfound': notfound})
 
+
+# def stockHome(request):
+	# import requests
+	# import json
+
+	# api_request = requests.get("https://cloud.iexapis.com/stable/stock/aapl/quote?token=pk_c7d75218621d4f8fb50eb8106dfbb90b")
+  # api = json.loads(api_request.content)
+
+  # return render(request, 'stockHome.html', {'api': api})
+
 def stockHome(request):
-  return render(request, 'stockHome.html', {})
+	import requests
+	import json
+
+	if request.method == 'POST':
+		ticker = request.POST['ticker']
+		api_request = requests.get("https://cloud.iexapis.com/stable/stock/" +
+		                           ticker + "/quote?token=pk_c7d75218621d4f8fb50eb8106dfbb90b")
+
+		try:
+			api = json.loads(api_request.content)
+		except Exception as e:
+			api = "Error..."
+		return render(request, 'stockHome.html', {'api': api})
+
+
+
+	else:
+		return render(request, 'stockHome.html', {'ticker': "Enter a Ticker Symbol Above..."})
+
+  # pk_c7d75218621d4f8fb50eb8106dfbb90b
+
+def about(request):
+  return render(request, 'about.html', {})
+
+
+
+
+def add_stock(request):
+	# import requests
+	# import json
+
+	# if request.method == 'POST':
+	# 	form = StockForm(request.POST or None)
+
+	# 	if form.is_valid():
+	# 		form.save()
+	# 		messages.success(request, ("Stock Has Been Added!"))
+	# 		return redirect('add_stock')
+
+	# else:
+	# 	ticker = Stock.objects.all()
+	# 	output = []
+	# 	for ticker_item in ticker:
+	# 	api_request = requests.get("https://cloud.iexapis.com/stable/stock/" + str(
+  #                   ticker_item) + "pk_c7d75218621d4f8fb50eb8106dfbb90b")
+	# 	try:
+	# 			api = json.loads(api_request.content)
+	# 			output.append(api)
+	# 		except Exception as e:
+	# 			api = "Error..."
+
+		return render(request, 'add_stock', {'ticker': ticker, 'output': output})
