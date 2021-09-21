@@ -39,15 +39,6 @@ def prices(request):
     return render(request, 'prices.html', {'notfound': notfound})
 
 
-# def stockHome(request):
-	# import requests
-	# import json
-
-	# api_request = requests.get("https://cloud.iexapis.com/stable/stock/aapl/quote?token=pk_c7d75218621d4f8fb50eb8106dfbb90b")
-  # api = json.loads(api_request.content)
-
-  # return render(request, 'stockHome.html', {'api': api})
-
 def stockHome(request):
 	import requests
 	import json
@@ -63,8 +54,6 @@ def stockHome(request):
 			api = "Error..."
 		return render(request, 'stockHome.html', {'api': api})
 
-
-
 	else:
 		return render(request, 'stockHome.html', {'ticker': "Enter a Ticker Symbol Above..."})
 
@@ -72,19 +61,6 @@ def stockHome(request):
 
 def about(request):
   return render(request, 'about.html', {})
-
-# def add_stock(request):
-#   if request.method == 'POST':
-#     form = StockForm(request.POST or None)
-
-#     if form.is_valid():
-#       form.save()
-#       messages.success(request, ("Stock Has Been Added!"))
-#       return redirect('add_stock')
-
-#   else:
-#     ticker = Stock.objects.all()
-#     return render(request, 'add_stock.html', {'ticker': ticker})
 
 
 def add_stock(request):
@@ -121,3 +97,10 @@ def delete(request, stock_id):
 def delete_stock(request):
 	ticker = Stock.objects.all()
 	return render(request, 'delete_stock.html', {'ticker': ticker})
+
+def sources(request):
+  return render(request, 'sources.html', {})
+
+
+def note(request):
+  return render(request, 'note.html', {})
