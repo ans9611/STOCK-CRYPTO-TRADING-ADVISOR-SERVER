@@ -70,31 +70,32 @@ def stockHome(request):
 def about(request):
   return render(request, 'about.html', {})
 
-
-
-
 def add_stock(request):
-	# import requests
-	# import json
+  return render(request, 'add_stock.html', {})
 
-	# if request.method == 'POST':
-	# 	form = StockForm(request.POST or None)
 
-	# 	if form.is_valid():
-	# 		form.save()
-	# 		messages.success(request, ("Stock Has Been Added!"))
-	# 		return redirect('add_stock')
+# def add_stock(request):
+# 	import requests
+# 	import json
 
-	# else:
-	# 	ticker = Stock.objects.all()
-	# 	output = []
-	# 	for ticker_item in ticker:
-	# 	api_request = requests.get("https://cloud.iexapis.com/stable/stock/" + str(
-  #                   ticker_item) + "pk_c7d75218621d4f8fb50eb8106dfbb90b")
-	# 	try:
-	# 			api = json.loads(api_request.content)
-	# 			output.append(api)
-	# 		except Exception as e:
-	# 			api = "Error..."
+# 	if request.method == 'POST':
+# 		form = StockForm(request.POST or None)
 
-		return render(request, 'add_stock', {'ticker': ticker, 'output': output})
+# 		if form.is_valid():
+# 			form.save()
+# 			messages.success(request, ("Stock Has Been Added!"))
+# 			return redirect('add_stock')
+
+# 	else:
+# 		ticker = Stock.objects.all()
+# 		output = []
+# 		for ticker_item in ticker:
+# 		api_request = requests.get("https://cloud.iexapis.com/stable/stock/" + str(
+#                     ticker_item) + "pk_c7d75218621d4f8fb50eb8106dfbb90b")
+# 		try:
+# 				api = json.loads(api_request.content)
+# 				output.append(api)
+# 			except Exception as e:
+# 				api = "Error..."
+
+# 		return render(request, 'add_stock', {'ticker': ticker, 'output': output})
