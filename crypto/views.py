@@ -1,6 +1,8 @@
 import crypto
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Stock
+from .forms import StockForm
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -72,6 +74,13 @@ def about(request):
   return render(request, 'about.html', {})
 
 def add_stock(request):
+  if request.method == 'POST':
+    form = StockForm(request.POST or None)
+
+    if form.is_valid():
+      form.save()
+      messages.success(request, ("Stock Has Been Added!"))
+      return redirect('add_stock')
   ticker = Stock.objects.all()
   return render(request, 'add_stock.html', {'ticker': ticker})
 
