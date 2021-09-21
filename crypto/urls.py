@@ -7,4 +7,5 @@ urlpatterns = [
     path('stockHome/', views.stockHome, name="stockHome"),
     path('about/', views.about, name="about"),
     path('add_stock/', views.add_stock, name="add_stock"),
+    path('delete/<stock_id>', views.delete, name="delete")
 ]

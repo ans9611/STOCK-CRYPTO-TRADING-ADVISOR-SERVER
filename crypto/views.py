@@ -81,8 +81,10 @@ def add_stock(request):
       form.save()
       messages.success(request, ("Stock Has Been Added!"))
       return redirect('add_stock')
-  ticker = Stock.objects.all()
-  return render(request, 'add_stock.html', {'ticker': ticker})
+
+  else:
+    ticker = Stock.objects.all()
+    return render(request, 'add_stock.html', {'ticker': ticker})
 
 
 # def add_stock(request):
@@ -110,3 +112,9 @@ def add_stock(request):
 # 				api = "Error..."
 
 # 		return render(request, 'add_stock', {'ticker': ticker, 'output': output})
+
+def delete(request, stock_id):
+	item = Stock.objects.get(pk=stock_id)
+	item.delete()
+	messages.success(request, ("Stock Has Been Deleted!"))
+	return redirect(add_stock)
