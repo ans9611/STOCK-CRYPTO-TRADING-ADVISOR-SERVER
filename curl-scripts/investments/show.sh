@@ -1,8 +1,8 @@
 #!/bin/bash
 
-curl "http://localhost:8000/products/${ID}/" \
+curl "http://localhost:8000/investments/${ID}/" \
   --include \
-  --request DELETE \
+  --request GET \
   --header "Authorization: Token ${TOKEN}"
 
 echo
