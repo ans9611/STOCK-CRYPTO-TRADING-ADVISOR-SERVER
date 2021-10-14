@@ -2,12 +2,11 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 class Investment(models.Model):
-  # define fields
-  # https://docs.djangoproject.com/en/3.0/ref/models/fields/
-  balance = models.DecimalField(decimal_places=2)
-  note = models.CharField(max_length=100)
-  risk = models.BooleanField()
-  owner = models.ForeignKey(
+  balance = models.DecimalField(
+      max_digits=7, decimal_places=2, null=True, blank=True)
+  note = models.TextField(null=True, blank=True)
+  risk = models.TextField(null=True, blank=True)
+  account = models.ForeignKey(
       get_user_model(),
       on_delete=models.CASCADE
   )

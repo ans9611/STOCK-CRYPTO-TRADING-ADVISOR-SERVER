@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
+from .models.investment import Investment
 from .models.user import User
 from .models.product import Product
 
@@ -39,4 +40,5 @@ class UserAdmin(BaseUserAdmin):
 # register the model and tell Django to use the above UserAdmin
 # class to format the pages:
 admin.site.register(User, UserAdmin)
+admin.site.register(Investment)
 admin.site.register(Product)

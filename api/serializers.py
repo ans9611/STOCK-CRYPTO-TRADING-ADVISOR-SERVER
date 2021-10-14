@@ -2,7 +2,14 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
 from .models.product import Product
+from .models.investment import Investment
 from .models.user import User
+
+
+class InvestmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Investment
+        fields = ('id', 'balance', 'note', 'risk', 'account')
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:

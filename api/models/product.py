@@ -2,6 +2,10 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 # Create your models here.
+
+
+
+
 class Product(models.Model):
   # define fields
   # https://docs.djangoproject.com/en/3.0/ref/models/fields/
@@ -43,4 +47,3 @@ class Product(models.Model):
           'countInStock': self.countInStock,
           '_id': self._id
       }
-
