@@ -39,4 +39,4 @@ class UserAdmin(BaseUserAdmin):
 # register the model and tell Django to use the above UserAdmin
 # class to format the pages:
 admin.site.register(User, UserAdmin)
-admin.site.register(Product)
+# admin.site.register(Product)
