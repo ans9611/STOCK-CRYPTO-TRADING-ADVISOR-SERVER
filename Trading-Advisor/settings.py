@@ -28,7 +28,7 @@ if os.getenv('ENV') == 'development':
       'NAME': DB_NAME,
   }
   # Set debug to true
-  DEBUG = True
+  DEBUG = False
   # Only allow locally running client at port 7165 for CORS
   CORS_ORIGIN_WHITELIST = ['http://localhost:7165']
 else:
