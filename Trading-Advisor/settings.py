@@ -173,3 +173,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Use the custom user model as the auth user for the admin view
 AUTH_USER_MODEL = 'api.User'
+SESSION_COOKIE_SECURE = True
